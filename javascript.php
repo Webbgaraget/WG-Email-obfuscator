@@ -2,7 +2,7 @@
 require_once('email-obfuscator.php');
 
 $prefix = false;
-$email_obfuscator = new WGEmailObfuscator( ( isset($_GET['prefix']) ? $_GET['prefix'] : false ) );
+$wg_email_obfuscator = new WGEmailObfuscator( ( isset($_GET['prefix']) ? $_GET['prefix'] : false ) );
 
 header("Content-type: text/javascript");
 ?>

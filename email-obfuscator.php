@@ -57,6 +57,15 @@ class WGEmailObfuscator
 		else {
 			$this->prefix = $prefix;
 		}
+		
+		if ( !has_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_javascripts' ) )
+		{
+			add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_javascripts' ) );
+		}
+		if ( !has_filter( 'the_content', array( &$this, 'encode_addresses' ) ) )
+		{
+			add_filter( 'the_content', array( &$this, 'encode_addresses' ) );
+		}
 	}
 
 	/**
@@ -67,8 +76,6 @@ class WGEmailObfuscator
 	 */
 	function init()
 	{
-		add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_javascripts' ) );
-		add_filter( 'the_content', array( &$this, 'encode_addresses' ) );
 	}
 	
 	/**

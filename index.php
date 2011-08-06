@@ -26,5 +26,5 @@ License: GPL2
 
 require_once( 'email-obfuscator.php' );
 
-$obfuscator = new WGEmailObfuscator();
-$obfuscator->init();
+$wg_email_obfuscator = new WGEmailObfuscator();
+$wg_email_obfuscator->init();
